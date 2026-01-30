@@ -32,3 +32,17 @@ class Camio(Vehicle):
 
     def calcular_preu(self,dies):
         return (dies * 50) + (self.tones * 20)
+
+class EmpresaRent():
+    def __init__(self):
+        self.vehicles = []
+
+    def afegir_vehicle(self,vehicle):
+        self.vehicles.append(vehicle)
+
+    def informe_guanys(self,dies):
+        guanys_totals = 0
+        for vehicle in self.vehicles:
+            preu = vehicle.calcular_preu(dies)
+            guanys_totals = guanys_totals + preu
+        return guanys_totals
